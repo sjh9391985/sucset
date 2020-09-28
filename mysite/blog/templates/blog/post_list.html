@@ -7,12 +7,13 @@
             <h1><a href="">Dongui's Blog</a></h1>
         </div>
 
+        {% for post in posts %}
         <div>
-            <p>Hello Pyo, I'm developing my web skill</p>
-            <h2><a href="">첫 게시글</a></h2>
-            <p>피자 정말 맛있었지만 너무 비싸용</p>
+            <p>{{ post.published_date }}</p>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-
+        {% endfor %}
         <div>
             <p>박행운</p>
             <h2><a href="">두번째 게시글</a></h2>
