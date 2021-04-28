@@ -1,0 +1,1384 @@
+<!--table->전체데이터 들어있는 테이블, date,good,bad,recommend-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  
+    <link rel="icon" href="/static/img/favicon.png">
+
+
+  <link rel="stylesheet" type="text/css" href="{% static  'css/style.css' %}">
+<script src="{% static 'js/app.js' %}"></script>
+
+<script src="{% static 'js/dictionary.js' %}"></script>
+<script src="{% static 'js/engine.js' %}"></script>
+<script src="{% static 'js/search.js' %}"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">   
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script>
+        $(document).ready(function() {
+                $("#keyword").keyup(function() {
+                    var k = $(this).val();
+                    $("#user-table > tbody > tr").hide();
+                    var temp = $("#user-table > tbody > tr > td:nth-child(5n+2):contains('" + k + "')");
+                    $(temp).parent().show();
+                })
+            })
+    </script>
+
+
+  <title>SUCSET | 당신의 주식 전도사</title>
+</head>
+
+<body>
+<script> AOS.init(); </script>
+<!-- Header id 영역 -->
+<section id="header">
+  <div class="header container">
+    <div class="nav-bar">
+      <div class="brand">
+        <a href="#hero"><h1><span>S</span>UC <span>S</span>ET</h1></a>
+      </div>
+      <div class="nav-list">
+        <div class="hamburger"><div class="bar"></div></div>
+        <ul>
+          <li><a href="#hero" data-after="Home">Home</a></li>
+          <li><a href="#about" data-after="About">Introduce</a></li>
+          
+          <li class="dropdown"><a class="dropbtn" href="#services" data-after="Service">Service</a>
+              <div class="dropdown-content">
+                <a href="#projects" data-after="Projects">Tutorial</a>
+                <a href="#dictionary" data-after="#dictionary">Stock dictionary</a>
+                <a href="#dataanalysis" data-after="#dataanalysis">data analysis</a>
+              </div>
+          </li>
+          
+          <li><a href="#contact" data-after="Contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Header -->
+
+
+<!-- 메인 page  -->
+  <section id="hero" >
+
+    <div class="hero container">
+      <div>
+        <h1>SUCSET! <span></span></h1>
+        <h1>성공적인 주식투자! <span></span></h1>
+        <h1>주식의 기초와 투자 쉽게 알려드립니다. <span></span></h1>        
+        <a href="#projects" type="button" class="cta">튜토리얼</a>
+      </div>
+    </div>
+  </section>
+<!-- End Hero Section  -->
+
+   <!-- 설명글 Section -->
+   <section id="about">
+    <div class="about container">     
+      <div class="col-right">
+        <h1 class="section-title">About <span>SUCSET</span></h1>
+        <h2>인사의 글</h2>
+        <p class="p-section-title">  SUCSET에 오신 것을 저희는 매우 기쁘게 생각합니다. <br>SUCSET은 "success" 와 "assets" 을 합친 합성어의 의미로 성공적인 자산을 만들고자 기획한 웹사이트 입니다. <br><br>아래의 항목의 사람들이 사이트를 이용하시면 유익한 정보를 얻어가실 수 있습니다. <br><br>1. 이미 주식을 시작했거나 주식을 시작하려는 사람 그리고 주식시장에 대해 관심이 있는 사람들에게 정보를 제공합니다. <br>2. 주식에 관심있는 사람들에게 매수, 매도에 대한 결정을 내릴 때 필요로 하는 정보뿐만 아니라, 이미 주식에 투자 중인 사람들에게도 투자를 하는 데 유용한 정보들을 제공합니다.  <br>3. 주식에 대해 관심이 있으나 잘 알지 못하는 사람들을 대상으로 지식을 전달하고 구매에 대한 추천까지 필요한 정보를 제공합니다. <br><span>(※ 본 사이트의 구매추천에 대한 고객의 구매에 대해서는 책임을 지지 않습니다.)</span> </p>
+        <a href="#contact" class="cta">대표 연락처</a>
+        
+      </div>
+    </div>
+  </section>
+  <!-- End 설명글 Section -->
+
+  <!-- Service Section -->
+  <section id="services">
+    <div class="services container">
+
+      <div class="service-top">
+        <h1 class="section-title">Serv<span></span>ices</h1>
+        <p>  SUCSET에서는 3가지 서비스를 제공합니다.</p>
+      </div>
+
+      <div class="service-bottom">
+
+        <div class="service-item">
+          <div class="icon"><img src="{%static 'img/1.png' %}"/></div>
+          <h2>주식 기초 안내</h2>
+          <p>주식 시작 시 증권사 선정, 계좌 개설, 매수, 매도에 대한 기초 지식을 알려드립니다<br>&nbsp&nbsp</p>
+        </div>
+
+        <div class="service-item">
+          <div class="icon"><img src="{%static 'img/2.png' %}"/></div>
+          <h2>주식용어 사전</h2>
+          <p>주식에 필요한 여러 가지 단어들을 설명하며 단어를 검색하여 뜻을 찾을 수 있도록 도와드립니다</p>
+        </div>
+
+        <div class="service-item">
+          <div class="icon"><img src="{%static 'img/4.png' %}"/></div>
+          <h2>주식 추천</h2>
+          <p>데이터 분석을 통하여 안정적이며 수익이 있는 종목을 추천을 하는 서비스입니다<br>&nbsp&nbsp</p>
+        </div>      
+      </div>
+
+    </div>
+  </section>
+  <!-- End Service Section -->
+
+  <!-- 튜토리얼 Section -->
+  <section id="projects">
+    <div class="projects container">
+      <div class="projects-header">
+        <h1 class="section-title">Tuto<span></span>Rial</h1>
+      </div>
+     
+      <div data-aos="zoom-in"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000" class="main">
+        <input type="radio" id="tab-1" name="show" checked/>
+        <input type="radio" id="tab-2" name="show" />
+        <input type="radio" id="tab-3" name="show" />
+        <input type="radio" id="tab-4" name="show" />
+  
+        <div class="tab" >
+          <label for="tab-1">계좌 개설 방법</label>
+          <label for="tab-2">증권 계좌 추천</label>
+          <label for="tab-3">매수 & 매도방법</label>
+          <label for="tab-4">주식 타임 테이블</label>
+        </div>
+        
+        <div class="content">
+          <div class="content-dis">
+            
+            - 계좌를 만드는 방법은 2가지가 있습니다.<br>
+              * 대면개설: 증권사에 직접가서 계좌를 개설하는 방법입니다.<br>
+              * 비대면개설: PC나 스마트폰을 이용하여 증권사에 가지 않고 계좌를 개설하는 방법입니다.<br><br>
+              
+              - 대면개설 방법: 신분증을 가지고 증권사 지점을 방문하여 만드는 방법입니다.<br>
+              - 비대면개설 방법<br>
+              <div class="pcmaker" >
+                1. PC 개설 방법<br>
+                - 개설하고자하는 증권사의 홈페이지에 접속하여 계좌를 개설합니다.<br>
+                <div style="color: red;" >(단, 공인인증서가 사용가능한 컴퓨터여야 합니다.)</div><br>
+                
+              <div class="content1">
+                <input type="radio" id="tab1-1" name="show1" />
+                <input type="radio" id="tab1-2" name="show1" checked/>
+                <input type="radio" id="tab1-3" name="show1" />
+                <input type="radio" id="tab1-4" name="show1" />
+                <input type="radio" id="tab1-5" name="show1" />
+                <input type="radio" id="tab1-6" name="show1" />
+              
+                <div class="tab1">
+                  <label for="tab1-1">step.1 ➔<br>약관, 개인정보동의 </label>
+                  <label for="tab1-2">step.2 ➔<br>휴대폰 인증 </label>
+                  <label for="tab1-3">step.3 ➔<br>고객정보입력 </label>
+                  <label for="tab1-4">step.4 ➔<br>거래상품선택 </label>
+                  <label for="tab1-5">step.5 ➔<br>이체 출금, 계좌등록 </label>
+                  <label for="tab1-6">step.6 ➔<br>신분증제출 & 본인확인 </label>
+                </div>
+                
+                <div class="content">
+
+                  <!-- 약관 개인정보동의 창입니다. -->
+                  <div class="content-dis">
+                    <div><u>HTS의 가입순서입니다.<br>
+                      STEP 에 따라서 회원가입을 진행하시면 됩니다. (증권사 별 대략적인 양식이기 때문에 가입전 참고용으로 사용해주시면 감사하겠습니다.)</u></div>
+                  </div>
+                  <!-- 약관 개인정보동의 창입니다. END -->
+
+                  <!-- 휴대폰인증 창입니다.-->
+                  <div class="content-dis">
+                    <div data-aos="fade-up-right"
+                    data-aos-anchor-placement="bottom-bottom" class="out_authen">
+                    <div class="authentication">
+                      고객님의 실명정보 입력 및 휴대폰 인증을 진행해 주세요.<br>
+                    </div>
+                    
+
+                    <div class="authentication_priv">
+                      <form>
+                        이름: <input type="text" ><br>
+                        주민등록번호: <input type="password"><br>
+                        <select>
+                          <option>통신사</option>
+                          <option>SKT</option>
+                          <option>KT</option>
+                          <option>LG U+</option>
+                        </select>
+                        <select>
+                          <option>선택</option>
+                          <option>010</option>
+                          <option>011</option>
+                          <option>016</option>
+                          <option>017</option>
+                          <option>019</option>
+                        </select>
+                        <input type="text" size="6" > <input type="text" size="6"><br>
+                        <input type="button" value="인증번호 발송"> <input type="text"> <input type="button" value="확인"> 
+                        
+                      </form>
+                    
+                  </div>
+                    <div class="footer_btn"><input type="button" value="다음" style="background-color: pink; border-color: pink; color: white;" ></div>
+                  </div>
+                  </div>
+                  <!-- 휴대폰인증 창입니다. END-->
+
+
+                  <!-- 고객정보입력 창입니다.-->
+                  <div class="content-dis">
+                    <div data-aos="fade-up-left"
+                    data-aos-anchor-placement="bottom-bottom" class="out_authen1">
+                      <div class="authentication">
+                        고객정보 입력 단계입니다.<br>
+                        특정 금융거래정보의 이용 및 보호 등에 관한 법률에 따른 고객 확인제도 이행 등을 위한 단계입니다.<br> 
+                      </div>
+                      <div class="authentication_priv1">
+                        <form>
+                          내국인 여부: <select>
+                            <option>내국인</option>
+                            <option>외국인</option>
+                          </select><br>
+                          국내거주여부: <select>
+                            <option>거주</option>
+                            <option>비거주</option>
+                          </select><br>
+                          직업: <select>
+                            <option>일반기업체</option>
+                            <option>공무원</option>
+                            <option>금융계</option>
+                            <option>언론계</option>
+                            <option>공기업</option>
+                            <option>전문직</option>
+                            <option>기타일반</option>
+                            <option>도소매업</option>
+                            <option>서비스업</option>
+                            <option>정치인</option>
+                            <option>주부</option>
+                            <option>학생</option>
+                            <option>무직</option>
+                          </select>
+                          <input type="text" readonly=""><br>
+                          거래자금원천 및 출처: <select>
+                            <option>미선택</option>
+                            <option>근로및연금소득</option>
+                            <option>퇴직소득</option>
+                            <option>사업소득</option>
+                            <option>부동산임대소득</option>
+                            <option>부동산등양도소득</option>
+                            <option>상속및증여</option>
+                            <option>금융기관등차입</option>
+                            <option>기타</option>
+                          </select>
+                          <input type="text" readonly=""><br>
+                          개좌계설목적: <select>
+                            <option>선택</option>
+                            <option>급여및생활비</option>
+                            <option>저축및투자</option>
+                            <option>공모주청약 실적유지</option>
+                            <option>사업상거래자금관리</option>
+                            <option>대출원리금상환결제</option>
+                            <option>보험료,카드,공과금등납부결제</option>
+                            <option>상속/증여</option>
+                            <option>기타</option>
+                          </select>
+                          <input type="text" readonly=""><br>
+                          이메일주소: <input type="text"><br>
+                          휴대폰번호:<select>
+                            <option>선택</option>
+                            <option>010</option>
+                            <option>011</option>
+                            <option>016</option>
+                            <option>017</option>
+                            <option>019</option>
+                          </select>
+                          <input type="text" size="6" > <input type="text" size="6"><br>
+                          거주국가: <select>
+                            <option>대한민국</option>
+                          </select><br>
+                          미국인 여부: <select>
+                            <option>아니오</option>
+                            <option>예</option>
+                          </select><br>
+                          개설목적: <select>
+                            <option>집금거래 목적 아님</option>
+                            <option>집금거래 목적</option>
+                          </select><br>
+                          실소유자 여부: <select>
+                            <option>실소유자</option>
+                            <option>실소유자 아님</option>
+                          </select><br>
+                          자택주소: <input type="text" size="6"> <input type="button" value="주소검색"> <input type="text" readonly value="서울특별시 **구 **로">
+                        </form>
+                      </div>
+                      <div class="footer_btn"><input type="button" value="다음" style="background-color: pink; border-color: pink; color: white;" ></div>
+                    </div>
+                  </div>
+                  <!-- 고객정보입력 창입니다. END-->
+
+                  <!-- 거래 상품선택 창입니다. -->
+                  <div class="content-dis">
+                    <div class="out_authen1">
+                      <div class="authentication">
+                        거래하실 상품을 선택해 주세요.<br>
+                        선택된 상품에 대한 계좌비밀번호(주문 및 은행이체 등에 사용)도 함께 입력해주세요.<br>
+                      </div>
+                      <div class="authentication_priv2">
+                        <form>
+                          <input type="checkbox">거래상품 계좌를 체크해 주세요(복수상품 선택가능)
+                          <div class="authen_dis">
+                            <input type="checkbox"> 종합(주식⦁펀드⦁해외주식⦁채권⦁ELS)<br>
+                            <input type="checkbox"> 선물옵션 계좌<br> 
+                            <input type="checkbox"> 해외선물옵션 계좌<br>
+                            <input type="checkbox"> CFD주식(전문투자전용)<br>
+                            <input type="checkbox"> FX마진 계좌<br>
+                            <input type="checkbox"> 급현물 계좌
+                          </div>
+                        </form><br>
+                        <form>
+                          <input type="checkbox">계좌비밀번호를 입력해 주세요
+                          <div class="authen_dis">
+                            계좌비밀번호: <input type="text"> <br>
+                            계좌비밀번호 확인: <input type="text"> <br>
+                          </div>
+                          <div class="authen_pw">
+                            ※ 비밀번호 구성: 숫자 4 자리<br>
+                            ※ 3자리 이상 동일숫자, 연속숫자 및 휴대폰 번호 4자리 사용불가
+                          </div>
+                        </form>
+                      </div>
+                      <div class="footer_btn"><input type="button" value="다음" style="background-color: pink; border-color: pink; color: white;" ></div>
+                    </div>
+                  </div>
+                 <!-- 거래 상품선택 창입니다.END -->
+
+
+                  <!-- 이체 출금, 계좌등록 창입니다.-->
+                  <div class="content-dis">
+                    <div class="out_authen1">
+                        <div class="authentication">
+                          고객님 명의의 은행(또는 증권사) 계좌가 있나요?
+                        </div>
+
+                        <div class="authentication_priv1">
+                        < 계좌가 있을경우 > <br>
+                        <input type="checkbox">계좌정보를 입력해 주세요(자유입출금 계좌)<br>
+                        <div class="authen_dis">
+                          <form>
+                          <input type="radio" name="bank"> 은행
+                          <input type="radio" name="bank"> 증권사<br>
+                          
+                        </form>
+                          <select width="100px">
+                            <option>은행(증권사)선택</option>
+                            <option>신한은행</option>
+                            <option>한국은행</option>
+                            <option>경남은행</option>
+                            <option>우리은행</option>
+                            <option>기업은행</option>
+                            <option>농협은행</option>
+                          </select><br>
+                          <input type="text"><input type="submit" value="계좌 확인">
+                        </div><br>
+                        < 계좌가 없을경우 > <br>
+                        <input type="checkbox">고객님 명의로 된 계좌가 없으세요?<br>
+                        <div class="authen_dis1">
+                          계좌개설을 할 때, 본인의 명의의 계좌가 없는 경우에는<br> 영상통화 본인확인 또는 다른인증확인으로만 계좌개설이 가능합니다.
+                        </div><br>
+                        <div class="authen_pw">
+                          ※ 입력하신 은행(증권사)의 계좌는 2가지 용도로 사용됩니다.<br>
+                          하나, 본인확인(소액이체 인증)으로 사용/ 둘, 계좌개설 후 증권계좌에서 출금시 등록
+                        </div>
+                        </div>
+                        <div class="footer_btn"><input type="button" value="다음" style="background-color: pink; border-color: pink; color: white;" ></div>
+                    </div>
+                  </div>
+                  <!-- 이체 출금, 계좌등록 창입니다. END-->
+
+                  <!-- 신분증 제출 & 본인확인 창 입니다.-->
+                  <div class="content-dis">
+                    <div class="out_authen1">
+                      <div class="authentication">
+                        신분증 제출과 본인확인 방법 안내입니다.
+                      </div>
+
+                      <div class="authentication_priv1">
+                      플레이스토어 또는 앱스토어에서 각 "증권계좌" 를 검색하고,<br> 모바일 앱을 다운로드 해 주세요.<br>
+                      <input type="button"value="모바일 App 다운로드"><br>
+
+                      <div class="authen_pw">
+                        ※ 기존 계좌정보(잔고/예수금/서비스 가입내역)를 새로운 계좌로 옮길 수 있습니다.</div>
+                      </div>
+                      <div class="footer_btn"><input type="button" value="다음" style="background-color: pink; border-color: pink; color: white;" ></div>
+                  </div>
+                  </div>
+                  <!-- 신분증 제출 & 본인확인 창 입니다. END-->
+
+                </div>
+              </div>
+            </div><br>
+          
+          <div class="smartmaker">
+            2. 스마트폰 개설방법<br>
+            - 스마트폰의 앱스토어 or 구글 플레이스토어에 다운받고자하는 증권사를 검색해서 다운합니다.<br>
+            - 보통 "증권사 앱" 이나 "증권사 계좌 개설용 앱" 이 나오는데 둘 중에 하나를 고르셔서 들어가도 계좌개설 안내가 뜹니다.<br>
+            - 어플 설치 후 접속하여 각 어플의 안내에 따라서 회원가입을 하시면 됩니다.<br><br>
+            
+            <!--<div class="smart_img">
+              <div class="smart_img1">
+                <img src="./img/smartPhone1.png">
+              </div>
+              <div class="smart_img2">
+                <img src="./img/smartPhone2.png">
+              </div>
+              <div class="smart_img3">
+                <img src="./img/smartPhone3.png">
+              </div>
+            </div>-->
+          </div>
+        </div>
+        
+          <div class="content-dis">
+            
+            <div class="loading">
+              - <span>증</span> <span>권</span> <span>계</span> <span>좌</span> <span>란</span> <span>?</span>
+            </div><br>
+            현금을 보내거나 받기 위해서 은행예금통장을 이용하듯이, 증권 (주식이나 채권)을 주고받기 위해서는 '증권계좌'가 있어야 합니다. '증권계좌'는 은행이 아닌 증권사에서 만드실 수 있고, 증권계좌의 종류는 아주 다양하기에 본인에게 맞는 것을 선택하시면 됩니다.<br><br>
+            <div class="loading1"> 
+              - <span>증</span> <span>권</span> <span>사</span> <span>선</span> <span>택</span> <span>이</span> <span>중</span> <span>요</span> <span>한</span> <span>이</span> <span>유</span>
+            </div><br>
+            한번 돈을 맡기면 이후에 돈을 옮기는 절차가 복잡하고 좀처럼 다른 증권사 계좌로 이동하는것이 쉽지 않습니다. 이런 불편함이 지속되면 좋은 투자시기가 지연되면서 좋은 기회를 놓칠 우려가 있기 때문에 처음 선택하는 증권사는 중요합니다.<br><br>
+            
+            <div class="loading2">
+              - <span>계</span> <span>좌</span> <span>개</span> <span>설</span> <span>고</span> <span>려</span> <span>사</span> <span>항</span>
+            </div><br>
+            자신이 <b>투자하고 싶은 상품</b>이 무엇인지를 명확하게 해야합니다.<br>
+            반드시 투자하고자하는 금융상품이 해당 증권사에 있는 상품인지, 자유롭게 투자가 가능한지를 확인해야합니다.<br><br>
+           
+            <div class="recommand_stock">
+              <div class="recommand_title_left"> < 증권사 순위 종합평가 > </div>
+              <div class="recommand_title_right"> < 증권사 순위 안정성 평가 > </div>
+              
+              <div data-aos="flip-left"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine" class="recommand_desc_left">
+                <ol>
+                  <li>미래애셋대우 <a href="https://directplus.miraeassetdaewoo.com/nks/nks5001/m02.do?utm_campaign=naver_pc&utm_medium=display&utm_source=bsearch&utm_term=free_main_text"><u>(이벤트 보러가기)</u></a></li>
+                  <li>삼성증권 <a href="https://www.onestopsamsungpop.co.kr/?utm_source=naver&utm_medium=pc-da&utm_campaign=account-brandsearch-thum2&n_media=27758&n_query=%EC%82%BC%EC%84%B1%EC%A6%9D%EA%B6%8C&n_rank=1&n_ad_group=grp-a001-04-000000018464932&n_ad=nad-a001-04-000000118085925&n_keyword_id=nkw-a001-04-000003313433377&n_keyword=%EC%82%BC%EC%84%B1%EC%A6%9D%EA%B6%8C&n_campaign_type=4&n_contract=tct-a001-04-000000000328247&n_ad_group_type=5"><u>(이벤트 보러가기)</u></a></li>
+                  <li>NH투자증권 <a href="https://www.kakaobank.com/products/NHStockAccount"><u>(이벤트 보러가기)</u></a></li>
+                  <li>KB증권<a href="https://www.kbsec.com/go.able?linkcd=et00101&airbridge_referrer=airbridge%3Dtrue%26event_uuid%3D017b20e5-2fcc-4b98-8612-2002484f0169%26client_id%3D9a7a321c-b03a-4aea-b652-84a4e2b8ee25%26short_id%3Dsyfnma%26referrer_timestamp%3D1612581694161%26channel%3Dnaver_brandsearch%26campaign%3Dpc%26tracking_template_id%3Dd448d12dcc803d7b77d0a13e547f61fd%26ad_group%3Dmain%26og_tag_id%3D82516%26routing_short_id%3Djr86&utm_source=naver_brandsearch&utm_campaign=pc"><u>(이벤트 보러가기)</u></a></li>
+                  <li>한국투자증권<a href="https://www.truefriend.com/main/customer/notice/Event.jsp?gubun=i&cmd=TF04gb010002&currentPage=1&num=2432"><u>(이벤트 보러가기)</u></a></li>
+                </ol>
+              </div>
+              
+              <div data-aos="flip-right"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine" class="recommand_desc_right">
+                <ol>
+                  <li>미래애셋대우 <a href="https://directplus.miraeassetdaewoo.com/nks/nks5001/m02.do?utm_campaign=naver_pc&utm_medium=display&utm_source=bsearch&utm_term=free_main_text"><u>(이벤트 보러가기)</u></a></li>
+                  <li>NH투자증권<a href="https://www.kakaobank.com/products/NHStockAccount"><u>(이벤트 보러가기)</u></a></li>
+                  <li>삼성증권<a href="https://www.onestopsamsungpop.co.kr/?utm_source=naver&utm_medium=pc-da&utm_campaign=account-brandsearch-thum2&n_media=27758&n_query=%EC%82%BC%EC%84%B1%EC%A6%9D%EA%B6%8C&n_rank=1&n_ad_group=grp-a001-04-000000018464932&n_ad=nad-a001-04-000000118085925&n_keyword_id=nkw-a001-04-000003313433377&n_keyword=%EC%82%BC%EC%84%B1%EC%A6%9D%EA%B6%8C&n_campaign_type=4&n_contract=tct-a001-04-000000000328247&n_ad_group_type=5"><u>(이벤트 보러가기)</u></a></li>
+                  <li>KB증권<a href="https://www.kbsec.com/go.able?linkcd=et00101&airbridge_referrer=airbridge%3Dtrue%26event_uuid%3D017b20e5-2fcc-4b98-8612-2002484f0169%26client_id%3D9a7a321c-b03a-4aea-b652-84a4e2b8ee25%26short_id%3Dsyfnma%26referrer_timestamp%3D1612581694161%26channel%3Dnaver_brandsearch%26campaign%3Dpc%26tracking_template_id%3Dd448d12dcc803d7b77d0a13e547f61fd%26ad_group%3Dmain%26og_tag_id%3D82516%26routing_short_id%3Djr86&utm_source=naver_brandsearch&utm_campaign=pc"><u>(이벤트 보러가기)</u></a></li>
+                  <li>하나금융투자<a href="https://www.hanaw.com/main/customer/event/hanamoneyCDevent.cmd"><u>(이벤트 보러가기)</u></a></li>
+                </ol>
+              </div>
+            </div>
+            * "금융 소비자 연맹" 에서 안정성/소비자성/건전성/수익성 4가지 항목을 기준으로 증권사 순위를 분류하였습니다.<br><br>
+            <a href="http://dis.kofia.or.kr/websquare/index.jsp?w2xPath=/wq/compann/DISComdStockTrdCms.xml&divisionId=MDIS02007002000000&serviceId=SDIS02007002000">주식거래수수료 비교해보기</a>
+          </div>
+          
+          <div class="content-dis">
+            <div class="buy">
+              주식의 기본적인 매수는 3가지만 알고 계시면 됩니다.<br>
+               < 주식 현재가 > < 주식 매수 > < 거래체결 > <br>
+              <div class="current_price">
+                <input type="search" value="🔍"><input type="button" value="매수"><input type="button" value="매도"><br>
+               <div class="current_table"> 
+                <table class="tabla">
+                  <caption>호가창 예시</caption>
+                  <thead>
+                    <tr>
+                      <th>매도주문량</th>
+                      <th>매수, 매도가격</th>
+                      <th>매수주문량</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>301242</th>
+                      <td>57000</td>
+                      <td>시가: 56,700</td>
+                      
+                    </tr>
+                    <tr>
+                      <th>182391</th>
+                      <td>56900</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>140392</th>
+                      <td>56800</td>
+                      <td>고가: 56900</td>
+                    </tr>
+                    <tr>
+                      <th>140922</th>
+                      <td>56,700</td>
+                      <td></td>
+                      
+                    </tr>
+                    <tr>
+                      <th>107920</th>
+                      <td>56600</td>
+                      <td>저가: 55,500</td>
+                    </tr>
+                    <tr>
+                      <td>100,708</td>
+                      <td>56,600</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>40094</th>
+                      <td>56500</td>
+                      <td></td>
+                      
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <td>56400</td>
+                      <td>99,597</td>
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <td>56300</td>
+                      <td>87,617</td>
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <td>56200</td>
+                      <td>184,710</td>
+                      
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <td>56100</td>
+                      <td>220,073</td>
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <td>56000</td>
+                      <td>166,349</td>
+                    </tr>
+                    
+                    <tr>
+                      <th>Ipsum</th>
+                      <td>56900</td>
+                      <td>Dolor</td>
+                    </tr>
+                
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="3">Table Foot<br>dasdsasd
+                      dasda</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              </div>
+              <div class="content3">
+                <input type="radio" id="tab2-1" name="show2" checked/>
+                <input type="radio" id="tab2-2" name="show2" />
+                
+                <div class="tab2">
+                  <label for="tab2-1">매수</label>
+                  <label for="tab2-2">매도</label>
+                </div>
+                
+              <div class="content4">
+                <div class="content4-dis">
+                  
+                  <div class="buy_left">
+                    <div class="buy_left1">
+                      <div class="buy_left1_1">
+                        <div>현금</div>
+                      </div>
+                    <div class="buy_left1_2">
+                      <div onclick="javascript:btn()"> 신용 </div> 
+                    </div>
+                  </div>
+  
+                    <div class="buy_left2" style="margin: 5px;">
+                      <div class="select">구분</div>
+                      <div class="selectDes">
+                        <select name ="구분">구분
+                          <option>보통</option>
+                          <option>시장가</option>
+                          <option>장전시간외</option>
+                          <option>장후시간외</option>
+                          <option>시간외단일가</option>
+                          <option>조건부지정가</option>
+                          <option>최유리지정자</option>
+                          <option>최우선지정가</option>
+                        </select>
+                      </div>
+                    </div>
+  
+                    <div class="buy_left3">
+                      <div class="quantity">수량: </div>
+                      <div class="posibleBtn">
+                        <button>가능</button>
+                      </div>
+                    </div>
+  
+                    <div class="buy_left4">
+                      <div class="price">단가: </div>
+                      <div class="priceCheck">
+                        <input type="checkbox" checked>시장
+                      </div>
+                    </div>
+                    
+                    <div class="buy_left5">
+                      <div class="buymoney">현금매수</div>
+                    </div>
+                  </div>
+  
+                  <div class="buy_right">
+                    <ol style="list-style: none;">
+                      <li> 1. 주식 매수주문은 거래시간에 해야합니다. 거래시간이 아닐때 넣은 주문은 무효처리 됩니다.(주식 타임 테이블 참고)</li>
+                      <li> 2. 매수하고자하는 종목에 들어갑니다.</li>
+                      <li> 3. 현금매수를 클릭합니다.</li>
+                      <li> 4. 매수 주문 종류를 선택합니다.</li>
+                      <li> 5. 매수 희망가를 입력 후 수량을 입력한 뒤 매수버튼을 누르면 됩니다.</li>
+                    </ol>
+                  </div>
+                </div>
+        
+                <div class="content2-dis">
+                  <select name ="구분">구분
+                    <option>보통</option>
+                    <option>시장가</option>
+                    <option>장전시간외</option>
+                    <option>장후시간외</option>
+                    <option>시간외단일가</option>
+                    <option>조건부지정가</option>
+                    <option>최유리지정자</option>
+                    <option>최우선지정가</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="sell">
+              
+            </div>
+        </div>
+   
+    
+              <div class="content-dis">
+                <div class="stockTime">
+                
+                  <img src="{%static 'img/stocktime.png' %}"/>
+                  
+                  <div class="timetable">
+                    <div class="timetableTitle">주식 거래시간 확인하기</div>
+
+                    <div class="timetable1">
+                      <a onclick="this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';" href="javascript:void(0)">
+                        ① 정규시간 ✔
+                      </a><div style="DISPLAY: none">
+                          <ul style="list-style: none;">
+                            <li>- 국내 주식 거래 정규시간은 9시부터 15시 30분까지입니다.</li>
+                            <li>- 9시에 장이 열리고(시작되고), 15시 30분에 닫히는(마감되는)것입니다.</li>
+                            <li>- 주식 거래는 월요일부터 금요일까지 주5일 가능합니다. 주말이나 공휴일은 거래가 이뤄지지 않습니다.</li>
+                            <li>- 주식 초보자라면 우선 주식 거래가 이뤄지는 정규시간만 확실히 알아두어도 충분합니다.</li>  
+                          </ul>
+                        </div>
+                    </div>
+
+                  <div class="timetable2">
+                    <a onclick="this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';" href="javascript:void(1)">
+                      ② 장 시작 동시 호가 ✔
+                    </a><div style="DISPLAY: none">
+                        주식거래에도 ‘사전주문’ 제도가 있습니다. 8시 30분부터 9시까지, 장이 열리기 전 30분 동안 주식을 얼마에 사고팔지 미리 주문을 접수 받고 9시에 일괄 거래되는 방식이죠. 전문용어로는 ‘장 시작 동시 호가’ 라고 합니다. 30분 동안 접수된 주식 가격과 수량을 감안해 그날의 주식거래 시작가격(시가)이 결정됩니다. A라는 주식을 사겠다고 사전주문 넣은 사람이 많을 경우, 시작 가격이 비싸겠죠? 반대로 A라는 주식을 사겠다고 사전주문 넣은 사람이 적을 경우, 시작 가격이 싸겠지요. 
+                      </div>
+                  </div>
+
+                  <div class="timetable3">
+                    <a onclick="this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';" href="javascript:void(2)">
+                      ③ 장 마감 동시 호가 ✔
+                    </a><div style="DISPLAY: none">
+                      장 시작 동시 호가와 마찬가지로 15시 20분부터 15시 30분까지, 장이 닫히기 전 10분 동안 주식을 얼마에 사고 팔지 사전주문을 받고, 15시 30분에 일괄 거래됩니다. 10분간 접수 받은 주식 가격과 수량을 감안해 그날의 마지막 가격(종가)이 결정됩니다
+                    </div>
+                  </div>
+
+                  <div class="timetable4">
+                    <a onclick="this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';" href="javascript:void(3)">
+                      ④ 시간 외 종가 ✔
+                    </a><div style="DISPLAY: none">
+                      무슨 뜻인지 어려워 보이지만, 이름 그대로 풀이하면 됩니다. 정규시간 외에 마지막 가격으로 주식을 사고 판다는 뜻입니다. 8시 30분부터 8시 40분까지는 전날의 마지막 가격(종가)으로 거래되고, 15시 40분부터 16시까지는 그날의 마지막 가격으로 거래됩니다. 그 이상이나, 그 이하 가격으로는 거래되지 않죠.
+                    </div>
+                  </div>
+                  
+                  <div class="timetable5">
+                    <a onclick="this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';" href="javascript:void(4)">
+                      ⑤ 시간 외 단일가 ✔
+                    </a><div style="DISPLAY: none">
+                      16시 이후에도 주식 거래가 가능한데요. 시간 외 단일가라고 해서 그날의 마지막 가격(종가)에서 ±10% 가격으로 거래됩니다. 투자자에게 추가적인 거래 기회를 제공하고자 16시부터 18시까지, 2시간 동안 10분 단위로 총 12회 진행됩니다.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>       
+      </div>
+      </section>
+  <!-- End 튜토리얼 Section -->
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="./dictionary.js"></script>
+  <!-- 사전 Section -->
+  <section id="dictionary">
+    <div class="dictionary container">
+      <div class="projects-header">
+        <h1 class="section-title">DICTI<span></span>ONARY</h1>
+      </div>
+      
+      <div id="input-form">
+        검색 : <input onkeyup="filter()" type="text" id="keyword" placeholder="모르는 용어를 검색해주세요"/>
+      </div>
+      <div class="table-responsive">
+
+          <table id="user-table">
+            <thead>
+              <tr>
+                <th>분류</th>
+                <th>용어</th>
+                <th>의미</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td>ㄱ</td>
+                <td>고가</td>
+                <td>하루의 장중에서 가장 높았던 가격</td>
+              </tr>
+              
+              <tr>
+                <td>ㄱ</td>
+                <td>공매도</td>
+                <td>특정 종목 주가가 하락할 것으로 전망되면 주식을 빌려 매도를 한 뒤 실제로 주가가 하락하면 싼값에 되사들여 빌린 주식을 갚음으로 차익을 얻는 매매기법</td>   
+              </tr>
+          
+              <tr>
+                <td>ㅁ</td>
+                <td>매도</td>
+                <td>주식을 파는 것</td>
+              </tr>
+              
+              <tr>
+                <td>ㅁ</td>
+                <td>매수</td>
+                <td>주식을 사는 것</td>   
+              </tr>
+
+              <tr>
+                <td>ㅁ</td>
+                <td>목표가</td>
+                <td>주식이나 상품을 사거나 파는데 기준이 되는 가격</td>
+              </tr>
+            
+              <tr>
+                <td>ㅂ</td>
+                <td>반토박</td>
+                <td>주식이나 자산이 절반으로 줄었다. 깡통찼다라고도 표현함</td>
+              </tr>
+              
+              <tr>
+                <td>ㅂ</td>
+                <td>배당</td>
+                <td>기업이 돈을 벌었을때 주주들에게 이익금을 나눠주는것</td>
+              </tr>
+              
+              <tr>
+                <td>ㅂ</td>
+                <td>블루칩</td>
+                <td>대형주에서도 특별히 우량하며 오랫동안 이익을 안정적으로 창출하고 배당도 지급하는 기업을 의미. 한마디로 수익성 좋고 재무구조 건전한 기업을 의미함</td>
+              </tr>
+            
+              <tr>
+                <td>ㅅ</td>
+                <td>상한가</td>
+                <td>주식시장에서 개별 종목의 주가가 일별로 상승할 수 있는 최고가격 (Maximum)</td>
+              </tr>
+            
+              <tr>
+                <td>ㅅ</td>
+                <td>선물</td>
+                <td>파생상품의 한 종류로 선매후물(선매매, 후물건 인수도)의 거래방식. 즉 상품이나 금융자산을 미리 결정된 가격으로 미래 일정 시점에 인도, 인수할 것을 약속하는 거래.</td>
+              </tr>
+            
+              <tr>
+              <td>ㅅ</td>
+              <td>손절가</td>
+              <td>손절매하는 가격</td>
+              </tr>
+
+            
+              <tr>
+              <td>ㅅ</td>
+              <td>손절매</td>
+              <td>주가가 단기간에 상승할 가능성이 없거나 현재보다 하락할 것이 예상되어 손해를 감수하면서도 가지고 있는 주식을 매입 가격 이하로 파는것을 말함</td>
+              </tr>
+            
+              <tr>
+              <td>ㅅ</td>
+              <td>순환매</td>
+              <td>어떤 종목에 호재가 발생하여 투자자가 몰려 주가가 상승하게 될 경우, 그 종목과 연관성이 있는 종목도 주가가 상승하게 되는 것을 말함</td>
+              </tr>
+
+              
+              <tr>
+              <td>ㅅ</td>
+              <td>시가</td>
+              <td>하루 중에서 주식거래에서 가장 최초로 결정된 가격</td>
+              </tr>
+              
+              <tr>
+              <td>ㅅ</td>
+              <td>시가총액</td>
+              <td>상장주식을 시가로 평가한것 </td>
+              </tr>
+ 
+              <tr>
+              <td>ㅅ</td>
+              <td>신고가</td>
+                
+              <td>기존의 고점을 돌파해서 새로운 고점을 형성하는 가격</td>
+              </tr>
+              
+              <tr>
+              <td>ㅅ</td>
+              <td>신저가</td>
+              <td>기존의 저점을 이탈해서 새로운 저점을 형성하는 가격</td>
+              </tr>
+              
+              <tr>
+              <td>ㅇ</td>
+              <td>액면병합</td>
+              <td>주식을 병합해서 가격을 올리는것</td>
+              </tr>
+              
+              <tr>
+              <td>ㅇ</td>
+              <td>액면분할</td>
+              <td>주식을 소액증권으로 분할하는것</td>
+              </tr>
+              
+              <tr>
+              <td>ㅇ</td>
+              <td>양봉</td>
+              <td>그날 시작주가의 마감가격이 시작 가격보다 높게 끝났을때를 의미(빨간색으로 표시됨)</td>
+              </tr>
+              
+              <tr>
+              <td>ㅇ</td>
+              <td>예수금</td>
+              <td>주식 거래를 위해 계좌에 넣어둔 현금으로 매매가 가능한 금액</td>
+              </tr>
+              
+              <tr>
+              <td>ㅇ</td>
+              <td>옐로우칩</td>
+              <td>블루칩에 들어가지 못한 기업이지만 양호한 실적을 가지고 있으며 경기변동에 민감한 업종의 대표주</td>
+              </tr>
+              
+              <tr>
+              <td>ㅇ</td>
+              <td>유상증자</td>
+              <td>기업에서 주식을 발행해서 자본금을 늘리는것</td>
+              </tr>
+              
+              <tr>
+              <td>ㅇ</td>
+              <td>음봉</td>
+              <td>그날 시작주가의 마감가격이 시작 가격보다 낮게 끝났을때를 의미(파랑색으로 표시됨)</td>
+              </tr>
+              
+              <tr>
+              <td>ㅈ</td>
+              <td>저가</td>
+              <td>하루의 장중에서 가장 낮았던 가격</td>
+              </tr>
+              
+              <tr>
+              <td>ㅈ</td>
+              <td>종가</td>
+              <td>하루 중에서 주식 시장이 마감될 때 마지막으로 결정된 가격</td>
+              </tr>
+              
+              <tr>
+              <td>ㅈ</td>
+              <td>증거금</td>
+              <td>주식을 사게 되면 매수 금액의 일정 비율을 예수금에서 차감하는 금액으로 주식을 매수시 최소한으로 있어야 하는 현금을 말함</td>
+              </tr>
+              
+              <tr>
+              <td>ㅋ</td>
+              <td>코스닥(KOSDAQ)</td>
+              <td>중견, 중소 벤처기업의 주식이 거래되는 증권시장</td>
+              </tr>
+              
+              <tr>
+              <td>ㅋ</td>
+              <td>코스피(KOSPI)</td>
+              <td>한국증권거래소에 상장되어 거래되고 있는 모든 주식을 대상으로 산출하여 전체 장세의 흐름을 나타내고 있는 지수/ 기업중에서 우량한 기업들, 투자적격 판정받은 기업</td>
+              </tr>
+              
+              <tr>
+              <td>ㅎ</td>
+              <td>하한가</td>
+              <td>주식시장에서 개별 종목의 주가가 일별로 하락할 수 있는 최저가격 (Minimum)</td>
+              </tr>
+              
+              <tr>
+              <td>ㅎ</td>
+              <td>호가</td>
+              <td>내가 가지고 있는 종목의 매도시 판매할 가격 또는 구매할 가격을 미리 걸어두는것을 말함</td>
+              </tr>
+              
+              <tr>
+              <td>H</td>
+              <td>HTS</td>
+              <td>컴퓨터로 주식을 사고파는 프로그램(홈트레이딩 시스템)</td>
+              </tr>
+              
+              <tr>
+              <td>M</td>
+              <td>MTS</td>
+              <td>모바일로 주식을 사고파는 프로그램</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <br>
+          <ul class="pagination">
+    
+          </ul>
+          </div>
+      </div>
+    </section>
+  <!-- End 사전 Section -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<script src="https://npmcdn.com/Chart.Zoom.js@0.3.0/Chart.Zoom.min.js"></script>
+  <!-- 데이터 사전 Section-->
+  <section id="dataanalysis">
+    <div class="dataanalysis container">
+      <div class="service-top">
+        <h1 class="section-title">recom<span></span>mand</h1>
+      </div>
+
+      <div class="chart-box">
+        <div class="top_chart">
+
+          <div class="chart-container">
+            <canvas id="myChart" style="height:50vh; width:60vw "></canvas>
+          </div>
+          <button id="reset_zoom" hidden>
+      Reset zoom
+</button>
+
+          <div class="chart-des" >
+            <form class="search">
+              <button class="img-button" type="submit" name="click" value= " ">
+              <i class="fas fa-search"></i>
+              </button>
+              <input class="keyword" type="text" name="search" maxlength=255 value="" autocomplete ="off"></input>
+              <select class="SelectSearch" name="WhichSearch">
+                <option id = "google" value = 'google'>Google</option>
+                <option id = "naver" value = 'naver'>Naver</option>
+                <option id = "investing" value = 'investing'>인베스팅닷컴</option>
+              </select>
+            </form>
+                <h4>종목 추천 순위</h4>
+                  <ol style="list-style: none;">
+                    {% for x in rec  %}
+                    <li ><button id={{x}} onclick="myFunction(id)">{{ forloop.counter }} : {{ x }} </button></li>
+                    {% endfor %}
+                  </ol>
+          </div >
+    </div>
+
+
+
+     <div class="chart_cal">
+
+      <div class="chart-container" style="position: relative; height:200px; width:fit-content ">
+        <canvas id="myChart1" style="height:30vh; width:30vw"></canvas>
+      </div>
+
+      <div class="chart-container" style="position: relative; height:200px; width: fit-content; ">
+        <canvas id="myChart2" style="height:30vh; width:30vw"></canvas>
+      </div>
+
+     </div>
+    </div>
+      
+<script>
+
+new Chart(document.getElementById("myChart"), {        
+    type: 'line',
+    data: {
+        labels: [{% for x in table %}'{{ x.index }}',{% endfor %}],
+        datasets: [{
+            label: '추천 데이터',
+            data: [{% for i in table %}'{{ i.good }}',{% endfor %}],
+            borderColor: "rgba(255, 0, 0, 1)",
+            backgroundColor: "rgba(255, 0, 0, 0.49)",
+            fill: true,
+            lineTension: 0
+            
+        },{
+          label: '그외 데이터',
+            data: [
+            {% for i in table %}
+            ' {{ i.bad }} ',
+            {% endfor %}
+            ],
+            borderColor: "rgba(0, 0, 255, 1)",
+            backgroundColor: "rgba(0, 0, 255, 0.51)",
+            fill: true,
+            lineTension: 0
+        }]
+    },
+    options: {
+        responsive: false,
+  pan: {
+         enabled: true,
+         mode: 'x',
+      },
+      zoom: {
+         enabled: true,
+         mode: 'x',
+      }
+   ,plugins: [{
+      beforeDraw: function(c) {
+         var reset_zoom = document.getElementById("reset_zoom"); //reset button
+         var ticks = c.scales['x-axis-0'].ticks.length; //x-axis ticks array
+         var labels = c.data.labels.length; //labels array
+         if (ticks < labels) reset_zoom.hidden = false;
+         else reset_zoom.hidden = true;
+      }
+   }],
+        title: {
+            display: true,
+            text: '안전한 주식 종목 추천 & 비교 '
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
+        },
+        scales: {
+            xAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: '기간'
+                }
+            }],
+            yAxes: [{
+                display: true,
+                ticks: {
+                    suggestedMin: 0,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: '점수'
+                }
+            }]
+        }
+    }
+});
+$('#reset_zoom').click(function() {
+   myChart.resetZoom();
+});
+      
+      </script>
+
+
+<script>
+  function myFunction(x) {
+
+  var name = [
+    {% for s in sub %}
+        "{{ s.name }}",
+    {% endfor %}
+  ];
+  var date = [
+    {% for s in sub %}
+        "{{ s.date }}",
+    {% endfor %}
+  ];
+  var profit = [
+    {% for s in sub %}
+        "{{ s.profit }}",
+    {% endfor %}
+  ];
+  var variances = [
+  {% for s in sub %}
+        "{{ s.variances }}",
+    {% endfor %}
+  ];
+
+  var vdate = []
+  var vprofit = []
+  var vvar = []
+  for (var i=0;i<name.length;i++){
+    
+    if (name[i]==x){
+      console.log(i)
+      vdate.push(date[i])
+      vprofit.push(profit[i])
+      vvar.push(variances[i])
+    }
+    return [vdate, vprofit, vvar];
+  }
+};
+  new Chart(document.getElementById("myChart1"), {
+type: 'line',
+data: {
+    labels: [vdate],
+    datasets: [{
+        label: '추천 데이터',
+        data: [
+           vprofit
+        ],
+        borderColor: "rgba(217, 255, 102, 1)",
+        backgroundColor: "rgba(217, 255, 102, 0.5)",
+        fill: true,
+        lineTension: 0
+    }]
+},
+options: {
+    responsive: false,
+    title: {
+        display: true,
+        text: '종목 수익점수 비교 '
+    },
+    tooltips: {
+        mode: 'index',
+        intersect: false,
+    },
+    hover: {
+        mode: 'nearest',
+        intersect: true
+    },
+    scales: {
+        xAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: '기간'
+            }
+        }],
+        yAxes: [{
+            display: true,
+            ticks: {
+                suggestedMin: 0,
+            },
+            scaleLabel: {
+                display: true,
+                labelString: '가격'
+            }
+        }]
+    }
+}
+});
+  
+  </script>
+
+<script>
+    
+  new Chart(document.getElementById("myChart2"), {
+type: 'line',
+data: {
+    labels: [{% for s in sub %}
+        "{{ s.date }}",
+    {% endfor %}],
+    datasets: [{
+        label: '추천 데이터',
+        data: [
+           {% for s in sub %}
+        "{{ s.variances }}",
+    {% endfor %}
+        ],
+        borderColor: "rgba(21, 173, 72, 1)",
+        backgroundColor: "rgba(21, 173, 72, 0.5)",
+        fill: true,
+        lineTension: 0
+    }]
+},
+options: {
+    responsive: false,
+    title: {
+        display: true,
+        text: '종목 안정성 비교 '
+    },
+    tooltips: {
+        mode: 'index',
+        intersect: false,
+    },
+    hover: {
+        mode: 'nearest',
+        intersect: true
+    },
+    scales: {
+        xAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: '기간'
+            }
+        }],
+        yAxes: [{
+            display: true,
+            ticks: {
+                suggestedMin: 0,
+            },
+            scaleLabel: {
+                display: true,
+                labelString: '가격'
+            }
+        }]
+    }
+}
+});
+  
+  </script>
+    </div>
+  </section>
+  
+
+  <!-- 연락 Section -->
+  <section id="contact">
+    <div class="contact container">
+      <div><h1 class="section-title">Contact <span></span></h1></div>
+      <div class="contact-items">
+
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/phone.png"/></div>
+          <div class="contact-info">
+            <h1>Phone</h1>
+            <h2>010 xxxx xxxx</h2>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png"/></div>
+          <div class="contact-info">
+            <h1>Email</h1>
+            <h2>SUCSET@gmail.com</h2>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/map-marker.png"/></div>
+          <div class="contact-info">
+            <h1>Address</h1>
+            <h2>울산대학교 IT융합학부</h2>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- End 연락 Section -->
+
+  <!-- Footer -->
+  <section id="footer">
+    <div class="footer container">
+      <div class="brand"><h1><span>S</span>UC <span>S</span>ET</h1></div>
+      <h2>환영합니다. SUCSET입니다.</h2>
+      <div class="social-icon">
+        <div class="social-item">
+          <a href="https://www.facebook.com/"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png"/></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png"/></a>
+        </div>
+      </div> 
+    </div>
+  </section>
+  <!-- End Footer -->
+
+  <!--JS영역-->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5f733aa6f0e7167d0014b65e/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+    <script src="./app.js"></script>
+
+<script>
+function myFunction(x) {
+
+  var name = [
+    {% for s in sub %}
+        "{{ s.name }}",
+    {% endfor %}
+  ];
+  var date = [
+    {% for s in sub %}
+        "{{ s.date }}",
+    {% endfor %}
+  ];
+  var profit = [
+    {% for s in sub %}
+        "{{ s.profit }}",
+    {% endfor %}
+  ];
+  var variances = [
+  {% for s in sub %}
+        "{{ s.variances }}",
+    {% endfor %}
+  ];
+
+  var vdate = []
+  var vprofit = []
+  var vvar = []
+  for (var i=0;i<name.length;i++){
+    
+    if (name[i]==x){
+      console.log(i)
+      vdate.push(date[i])
+      vprofit.push(profit[i])
+      vvar.push(variances[i])
+    }
+  }
+};
+
+</script>
+  </body>
+</html>

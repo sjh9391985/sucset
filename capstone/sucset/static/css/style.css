@@ -1,0 +1,1588 @@
+ @import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: 10px;
+	font-family: 'NotoSans','Noto Sans KR',  sans-serif;
+	scroll-behavior: smooth;
+}
+a {
+	text-decoration: none;
+}
+.container {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+body{
+	background-color: #FFF;	
+/*
+	background: -webkit-radial-gradient(rgb(180, 187, 206), rgb(32, 98, 167));
+
+	background: radial-gradient(rgb(180, 187, 206), rgb(32, 98, 167));
+*/
+}
+
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+p {
+	color: black;
+	font-size: 1.4rem;
+	margin-top: 5px;
+	line-height: 2.5rem;
+	font-weight: 500;
+	letter-spacing: 1px;
+}
+
+.section-title {
+	font-size: 4rem;
+	font-weight: 300;
+	color: black;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: .2rem;
+	text-align: center;
+}
+
+.section-title span {
+	color:  #00acdc;
+}
+
+.cta {
+	display: inline-block;
+	padding: 10px 30px;
+	color: white;
+	background-color: transparent;
+	border: 2px solid  #00acdc;
+	border-radius: 50%;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: .1rem;
+	margin-top: 30px;
+	transition: .3s ease;
+	transition-property: background-color, color;
+	
+}
+.cta:hover {
+	color: white;
+	background-color:  #00acdc;
+}
+.brand h1 {
+	font-size: 3rem;
+	text-transform: uppercase;
+	color: white;
+}
+.brand h1 span {
+	color: #00acdc;
+}
+
+.chart_cal{
+	width: 100%;
+	
+}
+#myChart1{
+	float: left;
+	width:50%;
+    box-sizing: border-box;
+}
+#myChart2{
+	float: left;
+	width:50%;
+    box-sizing: border-box;
+}
+
+#chart {
+    height: 440px;
+    width: 100%;
+}
+
+/* Header id section */
+#header {
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: auto;
+	
+}
+#header .header {
+	min-height: 8vh;
+	background-color: rgba(31, 30, 30, 0.24);
+	transition: .3s ease background-color;
+}
+#header .nav-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	max-width: 1300px;
+	padding: 0 10px;
+}
+#header .nav-list ul {
+	list-style: none;
+	position: absolute;
+	background-color: rgb(31, 30, 30);
+	width: 100vw;
+	height: 100vh;
+	left: 100%;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	overflow-x: hidden;
+	transition: .5s ease left;
+}
+#header .nav-list ul.active {
+	left: 0%;
+}
+#header .nav-list ul a {
+	font-size: 2.5rem;
+	font-weight: 300;
+	letter-spacing: .2rem;
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+	padding: 10px;
+	display: block;
+}
+#header .nav-list ul a::after {
+	content: attr(data-after);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	color: rgba(240, 248, 255, 0.021);
+	font-size: 13rem;
+	letter-spacing: 50px;
+	z-index: -1;
+	transition: .3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after {
+	transform: translate(-50%, -50%) scale(1);
+	letter-spacing: initial;
+}
+#header .nav-list ul li:hover a {
+	color: rgba(255, 217, 0, 0.849);
+}
+/* 서비스 드롭바 css 코드 */
+li a, .dropbtn {
+	display: inline-block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+  }
+  li.dropdown {
+	display: inline-block;
+  }
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: none;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+  .dropdown-content a {
+	background-color:  black;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+  }
+  .dropdown-content a:hover {background-color: gray}
+  .dropdown:hover .dropdown-content {
+	display: block;
+  }
+  /* 서비스 드롭바 css 코드 */
+
+#header .hamburger {
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	border: 3px solid white;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	cursor: pointer;
+	transform: scale(.8);
+	margin-right: 20px;
+}
+#header .hamburger:after {
+	position: absolute;
+	content: '';
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	border: 3px solid white;
+	animation: hamburger_puls 1s ease infinite;
+}
+#header .hamburger .bar {
+	height: 2px;
+	width: 30px;
+	position: relative;
+	background-color: white;
+	z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	background-color: white;
+	transition: .3s ease;
+	transition-property: top, bottom;
+}
+#header .hamburger .bar::after {
+	top: 8px;
+}
+#header .hamburger .bar::before {
+	bottom: 8px;
+}
+#header .hamburger.active .bar::before {
+	bottom: 0;
+}
+#header .hamburger.active .bar::after {
+	top: 0;
+}
+/* End Header section */
+
+/* 메인 page Section */
+#hero {
+	
+   background: #4261cf;
+  background: -moz-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #3023ae), color-stop(100%, #53a0fd));
+  background: -webkit-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  background: -o-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  background: -ms-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  background: linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$gradient-start', endColorstr='$gradient-end',GradientType=1 );
+  color: white;
+	background-size: cover;
+	background-position: top center;
+	position: relative;
+	z-index: 1;
+	border-bottom: 1px solid #ebebeb;
+}
+#hero::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: .7;
+	z-index: -1;
+}
+#hero .hero {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 50px;
+	justify-content: flex-start;
+}
+#hero h1 {
+	display: block;
+	width: fit-content;
+	font-size: 4rem;
+	position: relative;
+	color: transparent;
+	animation: text_reveal .5s ease forwards;
+	animation-delay: 1s;
+}
+#hero h1:nth-child(1) {
+	animation-delay: 1s;
+}
+#hero h1:nth-child(2) {
+	animation-delay: 2s;
+}
+#hero h1:nth-child(3) {
+	animation: text_reveal_name .5s ease forwards;
+	animation-delay: 3s;
+}
+#hero h1 span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0;
+	background-color: rgba(255, 217, 0, 0.849);;
+	animation: text_reveal_box 1s ease;
+	animation-delay: .5s;
+}
+#hero h1:nth-child(1) span {
+	animation-delay: .5s;
+}
+#hero h1:nth-child(2) span {
+	animation-delay: 1.5s;
+}
+#hero h1:nth-child(3) span {
+	animation-delay: 2.5s;
+}
+
+/* End 메인 page Section */
+
+/* 서비스 Section */
+#services .services {
+	flex-direction: column;
+	text-align: center;
+	max-width: 1500px;
+	margin: 0 auto;
+	padding: 100px 0;
+	border-bottom: 1px solid #ccc9c9;
+}
+#services .service-top {
+	max-width: 500px;
+	margin: 0 auto;
+}
+#services .service-bottom {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 50px;
+}
+#services .service-item {
+	flex-basis: 80%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	padding: 30px;
+	border-radius: 10px;
+	background-image: url(./img/img-1.png);
+	background-size: cover;
+	margin: 10px 5%;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+}
+#services .service-item::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	opacity: .9;
+	z-index: -1;
+}
+#services .service-bottom .icon {
+	height: 80px;
+	width: 80px;
+	margin-bottom: 20px;
+}
+#services .service-item h2 {
+	font-size: 2rem;
+	color: white;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+#services .service-item p {
+	color: white;
+	text-align: left;
+}
+/* End 서비스 Section */
+
+/* 튜토리얼 section */
+
+#projects{
+	border-bottom: 1px solid #ccc9c9;
+}
+#projects .projects {
+	flex-direction: column;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 100px 0;
+	
+}
+#projects .projects-header h1 {
+	margin-bottom: 50px;
+}
+
+/*div변경과 관련된 코드입니다. 색 등의 디자인은 보이기 위해서 표시해놨으니 스타일 추가 및 변경이 가능합니다.*/
+  .main input[type=radio] {
+	  display: none;
+	  
+  }
+  .tab{
+	background-color: #00acdc;
+  }
+
+  #tab-1:checked ~ .tab label:nth-child(1),
+  #tab-2:checked ~ .tab label:nth-child(2),
+  #tab-3:checked ~ .tab label:nth-child(3),
+  #tab-4:checked ~ .tab label:nth-child(4){
+	  background-color: #005596;
+	  color: white;
+		box-shadow: none;
+		
+		
+  }
+
+ 
+ 
+  .content > div {
+	  display: none;
+  }
+  #tab-1:checked ~ .content div:nth-child(1),
+  #tab-2:checked ~ .content div:nth-child(2),
+  #tab-3:checked ~ .content div:nth-child(3),
+  #tab-4:checked ~ .content div:nth-child(4){
+	  display: block;
+  }
+  .main {
+	margin: 0 auto;
+	min-width:100%;
+	max-width: 100%;
+	border: 1px solid transparent;
+	box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+	
+  }
+ 
+  .tab {
+	overflow: hidden;
+	
+  }
+  
+  .tab label {
+	  font-size: 18px;
+	  cursor: pointer;
+	  float: left;
+	  width: 25%;
+	  text-align: center;
+	  padding: 15px 0;
+	  text-transform: uppercase;
+	  font-weight: bold;
+	  letter-spacing: 2px;
+	  user-select: none;
+	  -webkit-user-select: none;	
+  }
+
+  .content {
+	min-height: 250px;
+  }
+
+  .content > div{
+	 padding: 30px;
+	 line-height: 1.5;
+	 font-size: 17px;
+  }
+
+  .pcmaker{
+	margin: 0 auto;
+	min-width:100%;
+	max-width: 100%;
+	
+  }
+  .content1 input[type=radio] {
+	display: none;
+	}
+
+	#tab1-1:checked ~ .tab1 label:nth-child(1),
+	#tab1-2:checked ~ .tab1 label:nth-child(2),
+	#tab1-3:checked ~ .tab1 label:nth-child(3),
+	#tab1-4:checked ~ .tab1 label:nth-child(4),
+	#tab1-5:checked ~ .tab1 label:nth-child(5),
+	#tab1-6:checked ~ .tab1 label:nth-child(6)
+	{
+
+		transition: all 0.7s ease-out;
+		
+
+		color: #005596;
+	box-shadow: none;	
+	border-radius: 20px;
+	}
+
+
+ .content1{
+	 
+background: #f4f7fa;
+	 border-radius: 20px;
+ }
+  
+  #tab1-1:checked ~ .content div:nth-child(1),
+  #tab1-2:checked ~ .content div:nth-child(2),
+  #tab1-3:checked ~ .content div:nth-child(3),
+  #tab1-4:checked ~ .content div:nth-child(4),
+  #tab1-5:checked ~ .content div:nth-child(5),
+  #tab1-6:checked ~ .content div:nth-child(6){	
+		display: block;
+	}
+	.pcmaker .content1 {
+		margin: 0 auto;
+		min-width:100%;
+		max-width: 100%;
+			
+	  }
+ 
+ .content1 .tab1 {
+	overflow: hidden;
+	border-bottom: 1px solid #ccc9c9;
+  }
+  
+  .content1 .tab1 label {
+	font-size: 18px;
+	cursor: pointer;
+	float: left;
+	width: 16.666666%;
+	text-align: center;
+	padding: 15px 0;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+	user-select: none;
+	-webkit-user-select: none;	
+	
+  }
+  label:hover{
+	  opacity: 1;
+	  
+	  
+  }
+
+  .content2{
+	  min-height: 250px;
+  }
+  
+  .content2 > div{
+	padding: 30px;
+	line-height: 1.5;
+	font-size: 17px;
+  }
+  /* 휴대폰 인증 구간 */
+  .out_authen{
+	  
+background: -webkit-radial-gradient(rgb(22, 135, 237), rgb(20, 55, 90));
+background: radial-gradient(rgb(22, 135, 237), rgb(20, 55, 90));
+
+	  
+	  color: white;
+	  
+  }
+  .authentication{
+	padding-top: 30px;
+	text-align: center;
+	font-weight: 800;
+	margin-bottom: 30px;
+	color: white;
+
+}
+
+  .authentication_priv{
+	  box-sizing: border-box;
+	  border: 2px solid rgb(77, 75, 75);
+
+	  width: 55%;
+	  
+	  margin-left: 23%;
+	  
+	  padding-top: 20px;
+	  padding-bottom: 30px;
+	  
+	  opacity: 0.7;
+	  padding-left: 10px;
+	  color: white;
+  }
+  /* 휴대폰 인증 구간 END */
+
+  /*고객정보 입력 구간*/  
+  .out_authen1{
+	  
+background: -webkit-radial-gradient(rgb(22, 135, 237), rgb(20, 55, 90));
+background: radial-gradient(rgb(22, 135, 237), rgb(20, 55, 90));
+
+  }
+ 
+  .authentication_priv1{
+	  box-sizing: border-box;
+	  border: 2px solid rgb(77, 75, 75);
+	  /*border-bottom: 2px solid rgb(77, 75, 75);*/
+	  width: 55%;
+	  
+	  margin-left: 23%;
+	  padding-top: 20px;
+	  padding-bottom: 30px;
+	  
+	  opacity: 0.7;
+	  padding-left: 10px;
+	  color: white;
+	  
+  }
+
+ .footer_btn{
+	text-align: center;
+}
+  /*고객정보 입력 구간 END*/
+  	/*거래상품 입력 구간*/
+	  .authentication_priv2{
+		box-sizing: border-box;
+		border: 2px solid rgb(77, 75, 75);
+		
+		width: 55%;
+	  
+		margin-left: 23%;
+
+
+		padding-top: 20px;
+		padding-bottom: 30px;
+	
+		opacity: 0.7;
+		padding-left: 10px;
+		padding-right: 10px;
+		color: white;	
+	}
+
+	.authen_dis input[type=radio]{
+		display: inline;		
+	}
+	.authen_dis{
+		box-sizing: border-box;
+		border: 1px solid rgba(0, 0, 0, 0.03);
+		background-color: rgba(0, 0, 0, 0.03);
+		padding-left: 23%;
+	}
+
+	.authen_dis1{
+		box-sizing: border-box;
+		border: 1px solid rgba(0, 0, 0, 0.03);
+		background-color: rgba(0, 0, 0, 0.03);
+		
+		text-align: center;
+	}
+	.authen_pw{
+		font-size: 13px;
+		padding-top: 10px;
+		color: gray;
+	}
+	  
+	/*거래상품 입력 구간 END*/
+
+	/*스마트폰 가입방법 구간*/
+	.smart_img{
+		box-sizing: border-box;
+
+	}
+	.smart_img1{
+		float: left;
+		width: 200px;
+		height: 200px;
+		margin-bottom: 20px;
+	}
+
+	.smart_img2{
+		float: left;
+		width: 200px;
+		height: 200px;
+	}
+
+	.smart_img3{
+		float: left;
+		width: 200px;
+		height: 200px;
+	}
+
+	/*스마트폰 가입방법 구간 END*/
+
+.recommand_stock .recommand_title_left{
+	float: left;
+	text-align: center;
+	box-sizing: border-box;
+	
+width: 50%;
+
+}
+
+/* 주식 증권사 추천 */
+.recommand_stock .recommand_title_right{
+	float: right;
+	text-align: center;
+	box-sizing: border-box;
+	
+width: 50%;
+
+}
+
+
+  .recommand_stock{
+	 
+	  box-shadow: 0 4px 6px rgba(50,50,93, 0.11), 0 1px 3px rgba(50,50,93, 0.11);
+	  border-radius: 10%;
+  }
+
+  .recommand_stock .recommand_title{
+	  text-align: center;
+	  border-bottom: 1px solid black;
+  }
+
+  .recommand_stock .recommand_desc_left{
+	  background-color: orange;
+	  text-align: left;
+	  padding-left: 30px;
+	  float: left;
+	  color: white;
+	text-align: center;
+	box-sizing: border-box;
+	
+width: 50%;
+	 
+  }
+  .recommand_stock .recommand_desc_right{
+	background-color: blanchedalmond;
+	text-align: left;
+	padding-left: 30px;
+	float: right;
+	text-align: center;
+	box-sizing: border-box;
+	
+width: 50%;
+   
+}
+  .recommand_stock .recommand_desc ul{
+	  list-style: none;
+  }
+  /* 증권사 추천_END */
+
+  /* css animation */
+.loading span {
+	display: inline-block;
+	margin: 0 -.075em;
+	animation: loading 1s infinite alternate;
+	font-weight: 800;
+	color: rgb(0, 128, 43);
+  }
+  .loading span:nth-child(2) {
+	animation-delay: .1s;
+  }
+  .loading span:nth-child(3) {
+	animation-delay: .2s;
+  }
+  .loading span:nth-child(4) {
+	animation-delay: .3s;
+  }
+  .loading span:nth-child(5) {
+	animation-delay: .4s;
+  }
+  .loading span:nth-child(6) {
+	animation-delay: .5s;
+  }
+  
+  @keyframes loading {
+	0% {
+	  transform: scale(1);
+	}
+	100% {
+	  transform: scale(0.8);
+	}
+  }
+
+  .loading1 span {
+	display: inline-block;
+	margin: 0 -.075em;
+	animation: loading 1s infinite alternate;
+	font-weight: 800;
+	color: rgb(0, 128, 43);
+  }
+  .loading1 span:nth-child(2) {
+	animation-delay: .1s;
+  }
+  .loading1 span:nth-child(3) {
+	animation-delay: .2s;
+  }
+  .loading1 span:nth-child(4) {
+	animation-delay: .3s;
+  }
+  .loading1 span:nth-child(5) {
+	animation-delay: .4s;
+  }
+  .loading1 span:nth-child(6) {
+	animation-delay: .5s;
+  }
+  .loading1 span:nth-child(7) {
+	animation-delay: .6s;
+  }
+  .loading1 span:nth-child(8) {
+	animation-delay: .7s;
+  }
+  .loading1 span:nth-child(9) {
+	animation-delay: .8s;
+  }
+  .loading1 span:nth-child(10) {
+	animation-delay: .9s;
+  }
+  .loading1 span:nth-child(11) {
+	animation-delay: .10s;
+  }
+  
+  @keyframes loading1 {
+	0% {
+	  transform: scale(1);
+	}
+	100% {
+	  transform: scale(0.8);
+	}
+  }
+  
+  .loading2 span {
+	display: inline-block;
+	margin: 0 -.075em;
+	animation: loading 1s infinite alternate;
+	font-weight: 800;
+	color: rgb(0, 128, 43);
+  }
+  .loading2 span:nth-child(2) {
+	animation-delay: .1s;
+  }
+  .loading2 span:nth-child(3) {
+	animation-delay: .2s;
+  }
+  .loading2 span:nth-child(4) {
+	animation-delay: .3s;
+  }
+  .loading2 span:nth-child(5) {
+	animation-delay: .4s;
+  }
+  .loading2 span:nth-child(6) {
+	animation-delay: .5s;
+  }
+  .loading2 span:nth-child(7) {
+	animation-delay: .6s;
+  }
+  .loading2 span:nth-child(8) {
+	animation-delay: .7s;
+  }
+  
+  
+  @keyframes loading2 {
+	0% {
+	  transform: scale(1);
+	}
+	100% {
+	  transform: scale(0.8);
+	}
+  }
+
+  /* css animation_END */
+
+/* 매수, 매도 */
+.current_table table{ 
+	border: 1px solid #bcbcbc;
+}
+.current_table th{ 
+	border: 1px solid #bcbcbc;
+	color: gray;
+	text-align: right;
+}
+.current_table td{ 
+	border: 1px solid #bcbcbc;
+	text-align: center;
+}
+
+.current_table{
+	border: 1px solid rgba(17, 17, 16, 0.12);
+	background-color: white;
+	width: 25%;
+	float: left;
+
+}
+.table{
+	width: 100%;
+}
+
+.content3 input[type=radio] {
+	display: none;
+}
+.content3 {
+	margin: 0 auto;
+	min-width:50%;
+	max-width: 50%;
+	border: 1px solid rgb(218, 225, 230);
+	float: left;
+	
+  }
+  #tab2-1:checked ~ .tab2 label:nth-child(1){
+	background-color:  red;
+	color: white;
+	  box-shadow: none;
+}
+  #tab2-2:checked ~ .tab2 label:nth-child(2)
+  {
+	  background-color:  blue;
+	  color: white;
+		box-shadow: none;
+		
+  }
+ 
+  .content4 > div {
+	  display: none;
+  }
+  #tab2-1:checked ~ .content4 div:nth-child(1)
+  {	
+	display: block;
+	}
+  #tab2-2:checked ~ .content4 div:nth-child(2)
+	{	
+	  display: block;
+  	}
+ 
+ 
+  .tab2 {
+	overflow: hidden;
+	
+  }
+  
+  .tab2 label {
+	  font-size: 18px;
+	  cursor: pointer;
+	  float: left;
+	  width: 50%;
+	  text-align: center;
+	  padding: 15px 0;
+	  text-transform: uppercase;
+	  font-weight: bold;
+	  letter-spacing: 2px;
+	  user-select: none;
+	  -webkit-user-select: none;
+	
+  }
+.content4-dis{
+	width: 100%;
+    height: 100%;
+
+
+}
+  .buy_left{
+	  
+	  width: 50%;
+	  float: left;
+	  box-sizing: border-box;
+	  height: 100%;
+	  
+
+  }
+  .buy_left1{
+	margin: 5px 5px;
+  }
+  .buy_left3{
+	margin:  5px;
+  }
+  .buy_left4{
+	margin:  5px;
+  }
+  .buy_left5{
+	margin-left:5px;
+	margin-right: 5px;
+	margin-top: 10px;
+  }
+  
+
+  .buy_left .buy_left1 .buy_left1_1{
+	border: 1px solid silver;
+    width:50%;
+	box-sizing: border-box;
+	float: left;
+	text-align: center;
+	color: silver;
+	background-color: white;
+	
+	
+}
+  .buy_left .buy_left1 .buy_left1_2{
+	border: 1px solid silver;
+    width:50%;
+	box-sizing: border-box;
+	float: left;
+	text-align: center;
+	color: silver;
+	background-color: white;
+  }
+
+  .buy_left .buy_left2 .select{
+	border: 1px solid silver;
+    width:50%;
+	box-sizing: border-box;
+	float: left;
+	text-align: center;
+	color: silver;
+	background-color: white;
+	
+}
+  .buy_left .buy_left2 .selectDes{
+	border: 1px solid silver;
+    width:50%;
+	box-sizing: border-box;
+	float: left;
+	text-align: center;
+	color: silver;
+	background-color: white;
+  }
+  .buy_left .buy_left3 .quantity{
+	border: 1px solid silver;
+    width:50%;
+	box-sizing: border-box;
+	float: left;
+	text-align: center;
+	color: silver;
+	background-color: white;
+	
+}
+  .buy_left .buy_left3 .posibleBtn{
+	border: 1px solid silver;
+    width:50%;
+	box-sizing: border-box;
+	float: left;
+	text-align: center;
+	color: silver;
+	background-color: white;
+  }
+
+  .buy_left .buy_left4 .price{
+	border: 1px solid silver;
+    width:50%;
+	box-sizing: border-box;
+	float: left;
+	text-align: center;
+	color: silver;
+	background-color: white;
+	
+}
+  .buy_left .buy_left4 .priceCheck{
+	border: 1px solid silver;
+    width:50%;
+	box-sizing: border-box;
+	float: left;
+	text-align: center;
+	color: silver;
+	background-color: white;
+  }
+
+  .buymoney{
+	  border: 1px solid silver;
+	  background-color: red;
+	  color: white;
+	  text-align: center;
+	  width: auto;
+  }
+
+  .buy_right{
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+	height: 100%;
+
+  }
+/* 매수, 매도 끝*/   
+
+  .stockTime img{
+	border: 1px solid silver;
+	box-shadow: 3px 3px 3px 3px silver;
+	margin-bottom: 30px;
+	
+}
+.timetable{
+	border: 1px solid silver;
+	box-sizing: border-box;
+	box-shadow: 3px 3px 3px 3px silver;
+}
+
+.timetable .timetableTitle{
+	text-align: center;
+	border: 1px solid silver;
+}
+
+.timetable .timetableDes{
+	width: 90%;
+    margin: 10px auto;
+    display: flex;
+}
+
+.timetable .timetable1{
+	border: 1px solid silver;
+    flex:1;
+	box-sizing: border-box;
+	text-align: center;
+	
+}
+.timetable .timetable2{
+	border: 1px solid silver;
+    flex:1;
+    
+	box-sizing: border-box;
+	text-align: center;
+	
+}
+.timetable .timetable3{
+	border: 1px solid silver;
+    flex:1;
+    
+	box-sizing: border-box;
+	text-align: center;
+	
+}
+.timetable .timetable4{
+	border: 1px solid silver;
+    flex:1;
+    
+	box-sizing: border-box;
+	text-align: center;
+	
+}
+.timetable .timetable5{
+	border: 1px solid silver;
+    flex:1;
+    
+	box-sizing: border-box;
+	text-align: center;
+	
+}
+
+.timetable a{
+color: black;
+
+}
+.timetable a:hover{
+	background-color: pink;
+}
+/* 타임테이블_END */
+/* End tutorial section */
+
+
+/* dictionary Section */
+#dictionary{
+	border-bottom: 1px solid #ccc9c9;
+}
+
+#dictionary .dictionary {
+	flex-direction: column;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 100px 0;
+}
+
+	
+.pagination a {
+	
+	display:inline-block;
+	margin-right:5px;
+	cursor:pointer;
+	z-index: 3;
+    color: black;
+    cursor: default;
+    background-color: #333;
+	color: white;
+	
+	
+	
+}
+
+.pagination a:hover {
+	
+    background-color: #337ab7;
+    color: white;
+	
+}
+.pagination{
+	margin-left: 47%;
+}
+.table-responsive ul li{
+	list-style: none;
+	text-align: center;
+	float: left;
+	
+
+
+}
+	
+	
+
+.container #input-form {text-align: center; font-size: 15px; }
+#user-table {margin: 0 auto; text-align: center;}
+#input-form {margin-top: 10px; margin-bottom: 10px; border-spacing: 10px; height: 40px;}
+
+#user-table {border-collapse: collapse; }
+#user-table > thead > tr { background-color: #333; color:#fff; }
+#user-table > thead > tr > th { padding: 8px; width: 150px; }
+#user-table > tbody > tr > td { border-bottom: 1px solid gray; padding:8px; font-size: 15px; }
+
+
+ 
+/* End dictionary Section */
+
+/* Analysis Section */
+#dataanalysis{
+	border-bottom: 1px solid #ccc9c9;
+}
+
+#dataanalysis .dataanalysis {
+	flex-direction: column;
+	text-align: center;
+	max-width: 1500px;
+	margin: 0 auto;
+	padding: 100px 0;
+}
+#dataanalysis .service-top {
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.chart-box{
+	width: 90%;
+    margin: 10px auto;
+}
+.chart-container {
+	
+    float: left;
+    width:70%;
+    box-sizing: border-box;
+    overflow: scroll;
+   max-width: 60vw;
+}
+
+.chart-des{
+	font-size: 25px;
+    float: left;
+    width:30%;
+	box-sizing: border-box;
+	text-align: left;
+	padding-top: 60px;
+}
+
+/* End Analysis Section */
+  
+/* About Section */
+#about .about {
+	flex-direction: column-reverse;
+	text-align: center;
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 100px 20px;
+	
+}
+
+.p-section-title span{
+	color: red;
+}
+
+#about .col-right {
+	text-align: center;
+	width: 100%;
+}
+.col-right .section-title h1{
+	text-align: center;
+}
+#about .col-right h2 {
+	font-size: 1.8rem;
+	font-weight: 500;
+	
+	letter-spacing: .2rem;
+	margin-bottom: 10px;
+}
+#about .col-right p {
+	margin-bottom: 20px;
+	
+}
+#about .col-right .cta {
+	color: black;
+	margin-bottom: 50px;
+	padding: 10px 20px;
+	font-size: 2rem;
+}
+
+/* End About Section */
+
+/* contact Section */
+#contact .contact {
+	flex-direction: column;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+#contact .contact-items {
+	width: 400px;
+}
+#contact .contact-item {
+	width: 80%;
+	padding: 20px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 30px;
+	margin: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: 0px 0px 18px 0 #0000002c;
+	transition: .3s ease box-shadow;
+}
+#contact .contact-item:hover {
+	box-shadow: 0px 0px 5px 0 #0000002c;
+}
+#contact .icon {
+	width: 70px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+#contact .contact-info h1 {
+	font-size: 2.5rem;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+#contact .contact-info h2 {
+	font-size: 1.3rem;
+	line-height: 2rem;
+	font-weight: 500;
+}
+/*End contact Section */
+
+/* Footer */
+#footer {
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+#footer .footer {
+	min-height: 200px;
+	flex-direction: column;
+	padding-top: 50px;
+	padding-bottom: 10px;
+}
+#footer h2 {
+	color: white;
+	font-weight: 500;
+	font-size: 1.8rem;
+	letter-spacing: .1rem;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#footer .social-icon {
+	display: flex;
+	margin-bottom: 30px;
+}
+#footer .social-item {
+	height: 50px;
+	width: 50px;
+	margin: 0 5px;
+}
+#footer .social-item img {
+	filter: grayscale(1);
+	transition: .3s ease filter;
+}
+#footer .social-item:hover img {
+	filter: grayscale(0);
+}
+#footer p {
+	color: white;
+	font-size: 1.3rem;
+}
+/* End Footer */
+
+/* Keyframes */
+@keyframes hamburger_puls {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(1.4);
+	}
+}
+@keyframes text_reveal_box {
+	50% {
+		width: 100%;
+		left: 0;
+	}
+	100% {
+		width: 0;
+		left: 100%;
+	}
+}
+@keyframes text_reveal {
+	100% {
+		color: white;
+	}
+}
+@keyframes text_reveal_name {
+	100% {
+		color: white;
+		font-weight: 500;
+	}
+}
+/* End Keyframes */
+
+/* Media Query For Tablet */
+@media only screen and (min-width: 768px) {
+	.cta {
+		font-size: 2.5rem;
+		padding: 20px 60px;
+	}
+	h1.section-title {
+		font-size: 6rem;
+	}
+
+	/* Hero */
+	#hero h1 {
+		font-size: 7rem;
+	}
+	/* End Hero */
+
+	/* Services Section */
+	#services .service-bottom .service-item {
+		flex-basis: 45%;
+		margin: 2.5%;
+	}
+	/* End Services Section */
+
+	/* Project */
+	#projects .project-item {
+		flex-direction: row;
+	}
+	#projects .project-item:nth-child(even) {
+		flex-direction: row-reverse;
+	}
+	#projects .project-item {
+		height: 400px;
+		margin: 0;
+		width: 100%;
+		border-radius: 0;
+	}
+	#projects .project-item .project-img{
+		height: 400px;
+		margin: 0;
+		width: 100%;
+		border-radius: 0;
+	}
+
+	#projects .all-projects .project-info {
+		height: 100%;
+	}
+	#projects .all-projects .project-img {
+		height: 100%;
+	}
+
+	/* End Project */
+
+	/* About */
+	#about{
+		border-bottom: 1px solid #ccc9c9;
+	}
+
+	#about .about {
+		flex-direction: row;
+		
+	}
+	#about .col-left {
+		width: 600px;
+		height: 400px;
+		padding-left: 60px;
+	}
+	#about .about .col-left .about-img::after {
+		left: -45px;
+		top: 34px;
+		height: 98%;
+		width: 98%;
+		border: 10px solid crimson;
+	}
+	#about .col-right {
+		text-align: left;
+		padding: 30px;
+	}
+	#about .col-right h1 {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	/* End About */
+
+	/* contact  */
+	#contact .contact {
+		flex-direction: column;
+		padding: 100px 0;
+		align-items: center;
+		justify-content: center;
+		min-width: 20vh;
+	}
+	#contact .contact-items {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		margin: 0;
+	}
+	#contact .contact-item {
+		width: 30%;
+		margin: 0;
+		flex-direction: row;
+	}
+	#contact .contact-item .icon {
+		height: 100px;
+		width: 100px;
+	}
+	#contact .contact-item .icon img {
+		object-fit: contain;
+	}
+	#contact .contact-item .contact-info {
+		width: 100%;
+		text-align: left;
+		padding-left: 20px;
+	}
+	/* End contact  */
+
+	#container1 {
+	
+	}
+	
+}
+
+/* End Media Query For Tablet */
+
+/* Media Query For Desktop */
+@media only screen and (min-width: 1200px) {
+	/* header */
+	#header .hamburger {
+		display: none;
+	}
+	#header .nav-list ul {
+		position: initial;
+		display: block;
+		height: auto;
+		width: fit-content;
+		background-color: transparent;
+	}
+	#header .nav-list ul li {
+		display: inline-block;
+	}
+	#header .nav-list ul li a {
+		font-size: 1.8rem;
+	}
+	#header .nav-list ul a:after {
+		display: none;
+	}
+	/* End header */
+
+	#services .service-bottom .service-item {
+		flex-basis: 22%;
+		margin: 1.5%;
+	}
+}
+/* End  Media Query For Desktop */
+
+
