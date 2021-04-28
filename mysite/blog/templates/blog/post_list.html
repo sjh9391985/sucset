@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Dongui's Blog~</title>
+    </head>
+    <body>
+        <div>
+            <h1><a href="">Dongui's Blog</a></h1>
+        </div>
+
+        {% for post in posts %}
+        <div>
+            <p>{{ post.published_date }}</p>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+        {% endfor %}
+        <div>
+            <p>박행운</p>
+            <h2><a href="">두번째 게시글</a></h2>
+            <p>나 왜 17번에 라지사이즈 시키냐고 그때 다적어놨는데 까쳐먹으면 어.떻.게 할꺼냐고</p>
+        </div>
+
+        <p>나가 박행운 나가!!!!!!!!!!!!!!</p>
+        <p>나가라고!!!!!!!!!</p>
+    </body>
+</html>
